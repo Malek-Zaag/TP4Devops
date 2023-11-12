@@ -2,7 +2,6 @@ pipeline {
   agent any
   tools {
     maven '3.9.5'
-    jdk '11'
   }
   stages {
     stage("getting code") {

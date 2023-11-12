@@ -27,12 +27,10 @@ pipeline {
 
       }
     }
-    stage("Notification email") {
-      steps {
-        emailext: "zaag.malek1@gmail.com",
-        subject: "Build Success",
-        body: "Pipeline Execution Success",
-      }
-    }
+    post {
+            always {
+                emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+            }
+        }
   }
 }

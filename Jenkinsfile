@@ -29,7 +29,7 @@ pipeline {
     }
   }
   post {
-    on_success {
+    success {
       mail bcc: '', body: 'Pipeline build success', cc: '', from: 'zaag.malek@gmail.com', replyTo: '', subject: 'Pipeline build success', to: 'zaag.malek1@gmail.com'
     }
   }

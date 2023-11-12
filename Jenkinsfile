@@ -28,7 +28,9 @@ pipeline {
       }
     }
     stage("Notification email") {
-      emailext (body: 'Pipeline Execution Success', subject: 'Build Success', to: 'zaag.malek1@gmail.com')
+      steps {
+        emailext (body: 'Pipeline Execution Success', subject: 'Build Success', to: 'zaag.malek1@gmail.com')
+      }
     }
   }
 }

@@ -27,5 +27,4 @@ public class Controller {
         map.put("msg","hello, this is a POST request");
         return map;
     }
-
 }

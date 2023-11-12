@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    maven '3.9.5'
+  }
   stages {
     stage("getting code") {
       steps {
@@ -12,7 +15,8 @@ pipeline {
       steps {
         script {
           echo "======== executing ========"
-          sh "mvn clean package"
+
+          sh "mvn test"
         }
       }
     }

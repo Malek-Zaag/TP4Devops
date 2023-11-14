@@ -2,14 +2,15 @@ package com.example.tp4.entity;
 
 
 import lombok.Data;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue

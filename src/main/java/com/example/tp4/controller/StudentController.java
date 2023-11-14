@@ -2,7 +2,6 @@ package com.example.tp4.controller;
 
 
 import lombok.Data;
-import netscape.javascript.JSObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,8 +11,8 @@ import java.util.Map;
 
 @Data
 @RestController
-public class Controller {
-
+public class StudentController {
+    private fi
     @GetMapping("/")
     public Map<String, String> Geter(){
         HashMap<String,String> map = new HashMap<>();

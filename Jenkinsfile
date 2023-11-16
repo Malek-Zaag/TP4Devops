@@ -25,8 +25,9 @@ pipeline {
       steps {
         script {
           echo "======== executing stage ========"
-          sh "mvn test -Dtest=StudentServiceTest"
-          junit allowEmptyResults: true, testResults: '**/test-results/report.xml', skipPublishingChecks: true
+          //sh "mvn test -Dtest=StudentServiceTest"
+          //junit allowEmptyResults: true, testResults: '**/test-results/report.xml', skipPublishingChecks: true
+          sh "mvn surefire-report:report"
         }
       }
     }

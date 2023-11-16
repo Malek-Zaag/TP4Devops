@@ -21,7 +21,7 @@ pipeline {
         }
       }
     }
-    Stage("Running Unit tests") {
+    stage("Running Unit tests") {
       steps {
         script {
           echo "======== executing stage ========"

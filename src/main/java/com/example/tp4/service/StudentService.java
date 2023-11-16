@@ -23,7 +23,23 @@ public class StudentService {
         Optional<Student> optionalStudent = this.studentRepository.findByEmail(student.getEmail());
         if (optionalStudent.isPresent()) {
             throw new IllegalStateException("email is taken, please try a new one");
+        } else if (!checkEmail(student.getEmail())) {
+            throw new IllegalStateException("email is not corresponding to a valid one");
+        } else if (!checkFirstname(student.getFirstname())) {
+            throw new IllegalStateException("firstname is too short !!!");
         }
         return this.studentRepository.save(student);
+    }
+
+    public boolean checkEmail(String email) {
+        if ((email.length() >= 12) && email.toLowerCase().contains("@")) {
+            return true;
+        } else return false;
+    }
+
+    public boolean checkFirstname(String firstname) {
+        if (firstname.length() > 5) {
+            return true;
+        } else return false;
     }
 }

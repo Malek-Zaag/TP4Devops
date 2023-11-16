@@ -32,18 +32,4 @@ public class StudentController {
     public Student addStudent(@RequestBody Student student) {
         return this.studentService.addNewStudent(student);
     }
-
-//    @GetMapping("/")
-//    public Map<String, String> Geter(){
-//        HashMap<String,String> map = new HashMap<>();
-//        map.put("msg","hello, this is a GET request");
-//        return map;
-//
-//    }
-//    @PostMapping( "/")
-//    public Map<String, String> Poster(){
-//        HashMap<String,String> map = new HashMap<>();
-//        map.put("msg","hello, this is a POST request");
-//        return map;
-//    }
 }

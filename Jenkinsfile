@@ -21,10 +21,18 @@ pipeline {
         }
       }
     }
+    Stage("Running Unit tests") {
+      steps {
+        script {
+          echo "======== executing stage ========"
+          sh "mvn test -Dtest=StudentServiceTest"
+          junit 'test-results.xml'
+        }
+      }
+    }
     stage("Static Code Analysis") {
       steps {
         echo "======== executing stage ========"
-
       }
     }
   }

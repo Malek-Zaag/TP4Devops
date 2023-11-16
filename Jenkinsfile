@@ -26,7 +26,7 @@ pipeline {
         script {
           echo "======== executing stage ========"
           sh "mvn test -Dtest=StudentServiceTest"
-          junit '**/test-results/report.xml'
+          junit '**/test-results/*.xml'
         }
       }
     }

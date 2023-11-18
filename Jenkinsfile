@@ -26,13 +26,25 @@ pipeline {
         script {
           echo "======== executing stage ========"
           sh "mvn test -Dtest=StudentServiceTest"
-          junit testResults: '**/test-results/report.xml', skipPublishingChecks: true
+          //junit testResults: '**/test-results/report.xml', skipPublishingChecks: true
         }
       }
     }
+
+    stage("Running Unit tests") {
+          steps {
+            script {
+              echo "======== executing stage ========"
+              sh "mvn test -Dtest=StudentControllerTest"
+              //junit testResults: '**/test-results/report.xml', skipPublishingChecks: true
+            }
+          }
+        }
+
     stage("Static Code Analysis") {
       steps {
         echo "======== executing stage ========"
+        sh "mvn sonar:sonar"
       }
     }
   }

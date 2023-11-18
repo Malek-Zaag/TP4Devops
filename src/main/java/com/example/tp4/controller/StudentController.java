@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
 @Data
 @RestController
 public class StudentController {
     @Autowired
     private final StudentService studentService;
+    public String result = "hello world";
 
     @GetMapping("/students")
     public List<Student> getAllStudents() {

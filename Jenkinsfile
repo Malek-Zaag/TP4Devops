@@ -31,7 +31,7 @@ pipeline {
       }
     }
 
-    stage("Running Unit tests") {
+    stage("Running Integration tests") {
           steps {
             script {
               echo "======== executing stage ========"

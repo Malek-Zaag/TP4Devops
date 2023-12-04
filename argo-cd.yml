@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: myAKSCluster 
+    namespace: cluster1-aks
     server: https://cluster1-k8s-dns-d4zr1qa2.hcp.eastus.azmk8s.io  # Use your AKS cluster's server address
     
   project: default

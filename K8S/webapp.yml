@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tp4-devops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tp4-devops
+  template:
+    metadata:
+      labels:
+        app: tp4-devops
+    spec:
+      containers:
+        - name: spring-app
+          image: louaykharouf/tp4-devops_spring-app:tp4
+          ports:
+            - containerPort: 4000
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://tp4-db-service.default.svc.cluster.local:5432/student
+            - name: SPRING_DATASOURCE_USERNAME
+              value: admin
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: admin
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: create-drop
+            - name: SPRING_JPA_SHOW_SQL
+              value: "true"
+            - name: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+              value: org.hibernate.dialect.PostgreSQLDialect
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tp4-devops-service
+spec:
+  selector:
+    app: tp4-devops
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+  type: LoadBalancer

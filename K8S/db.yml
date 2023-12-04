@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tp4-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tp4-db
+  template:
+    metadata:
+      labels:
+        app: tp4-db
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:12.16-bullseye
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: student
+            - name: POSTGRES_USER
+              value: admin
+            - name: POSTGRES_PASSWORD
+              value: admin
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-storage
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tp4-db-service
+spec:
+  selector:
+    app: tp4-db
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP

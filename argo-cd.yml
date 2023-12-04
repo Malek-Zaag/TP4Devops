@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mini-projet
+  namespace: argocd
+spec:
+  destination:
+    namespace: myAKSCluster 
+    server: https://cluster1-k8s-dns-d4zr1qa2.hcp.eastus.azmk8s.io  # Use your AKS cluster's server address
+    
+  project: default
+  source:
+    path: K8S  # Update the path to the folder containing your K8S manifest files
+    repoURL: https://github.com/Malek-Zaag/TP4-Devops.git  # Update the repo URL
+    targetRevision: master  # Specify the branch or tag you want to deploy (e.g., "main")
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

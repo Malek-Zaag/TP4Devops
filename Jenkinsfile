@@ -4,7 +4,7 @@ pipeline {
         maven 'Maven_3.6.3'
     }
     stages {
-        stage("Getting code") {
+      /*  stage("Getting code") {
             steps {
                 echo "======== executing stage ========"
                 git url: 'https://github.com/Malek-Zaag/TP4-Devops.git', branch: 'main',
@@ -53,13 +53,13 @@ pipeline {
                 echo "======== executing stage ========"
                 sh "docker-compose up --build -d"
             }
-        }
+        }*/
 
         stage("Push image to docker hub") {
             steps {
                 echo "======== executing stage ========"
                 sh "docker login -u louay.khrouf@insat.ucar.tn -p LOUkharouf639536*"
-                sh "docker tag miniprojet_spring-app louaykharouf/miniprojet:tp4v1"
+                sh "docker tag miniprojet-spring-app louaykharouf/miniprojet:tp4v1"
                 sh "docker push louaykharouf/miniprojet:tp4v1"
             }
         }

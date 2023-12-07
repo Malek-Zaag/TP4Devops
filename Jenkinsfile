@@ -44,7 +44,7 @@ pipeline {
         stage("Static Code Analysis") {
             steps {
                 echo "======== executing stage ========"
-                sh "mvn sonar:sonar -Dsonar.host.url=http://20.234.62.35:9000 -Dsonar.login=626a2aed7b25c57d3ec720fe9d40a593c0457c2e"
+                sh "mvn sonar:sonar -Dsonar.host.url=http://172.23.67.112:9000 -Dsonar.login=3b2d39110fea0aa1052c5f0728042da3bd067691"
             }
         }
 

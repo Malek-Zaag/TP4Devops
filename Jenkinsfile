@@ -58,7 +58,7 @@ pipeline {
         stage("Push image to docker hub") {
             steps {
                 echo "======== executing stage ========"
-                sh "docker login -u louay.khrouf@insat.ucar.tn -p LOUkharouf639536*"
+               
                 sh "docker tag miniprojet-spring-app louaykharouf/miniprojet:tp4v1"
                 sh "docker push louaykharouf/miniprojet:tp4v1"
             }
